@@ -11,6 +11,12 @@ struct Simple_Mouse {
 	bool mouseDown;
 };
 
+enum Simple_MouseState {
+	CHECK_DOWN,
+	CHECK_OVER,
+	CHECK_NONE
+};
+
 Simple_Mouse SimpleMouse_Create(int x, int y);
 
 #endif

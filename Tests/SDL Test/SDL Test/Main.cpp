@@ -10,6 +10,11 @@ inline void SetupRect(SDL_Rect &rect, Simple_State &state)
 	rect.h = state.height;
 }
 
+Simple_Checkbox checkbox;
+Simple_State checkState;
+Simple_State textState;
+
+
 int wmain(int argc, wchar_t *argv[])
 {
 	SDL_Window *window = nullptr;
@@ -18,9 +23,9 @@ int wmain(int argc, wchar_t *argv[])
 	SDL_Init(SDL_INIT_VIDEO);
 
 	//Create a checkbox and default states
-	Simple_Checkbox checkbox = SimpleCheckbox_Create("Some test value", CHECK_NONE, 5, 5);
-	Simple_State checkState = SimpleState_Create(30, 30, 0, 0);
-	Simple_State textState = SimpleState_Create(100, 20, 0, 0);
+	checkbox = SimpleCheckbox_Create("Some test value", CHECK_NONE, 5, 5);
+	checkState = SimpleState_Create(30, 30, 0, 0);
+	textState = SimpleState_Create(100, 20, 0, 0);
 
 	//Initialise the checkbox to the references of the states this checkbox needs.
 	SimpleCheckbox_Init(checkbox, &checkState, &checkState, &checkState, &checkState, &textState);
@@ -60,6 +65,7 @@ int wmain(int argc, wchar_t *argv[])
 		mouse.mouseDown = mouseDown;
 
 		//This function handles layout logic for the checkbox as necessary.
+		SimpleCheckbox_Move(checkbox, 400 - SimpleCheckbox_GetWidth(checkbox, 2) / 2, 0, 2);
 		SimpleCheckbox_Layout(checkbox, 2, mouse);
 
 		SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);

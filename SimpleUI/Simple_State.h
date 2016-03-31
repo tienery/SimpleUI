@@ -14,5 +14,6 @@ struct Simple_State {
 };
 
 Simple_State SimpleState_Create(int width, int height, int x, int y);
+void SimpleState_Move(Simple_State *state, int x, int y);
 
 #endif

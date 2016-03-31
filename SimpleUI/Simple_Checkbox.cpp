@@ -1,9 +1,9 @@
 #include "Simple_UI.h"
 
-Simple_Checkbox SimpleCheckbox_Create(char* text, Simple_CheckState checked, int x, int y)
+Simple_Checkbox SimpleCheckbox_Create(char* text, Simple_MouseState checked, int x, int y)
 {
 	Simple_Checkbox checkbox;
-	checkbox.checked = checked;
+	checkbox.mouseState = checked;
 	checkbox.text = text;
 	checkbox.x = x;
 	checkbox.y = y;
@@ -19,11 +19,36 @@ void SimpleCheckbox_Init(Simple_Checkbox &checkbox, Simple_State *checkState, Si
 	checkbox.upState = upState;
 }
 
-void SimpleCheckbox_SetCheckState(Simple_Checkbox &checkbox, Simple_CheckState checkState)
+void SimpleCheckbox_SetCheckState(Simple_Checkbox &checkbox, Simple_MouseState mouseState)
 {
-	checkbox.downState->visible = (checkState == CHECK_DOWN);
-	checkbox.overState->visible = (checkState == CHECK_OVER);
-	checkbox.upState->visible = (checkState == CHECK_NONE);
+	checkbox.downState->visible = (mouseState == CHECK_DOWN);
+	checkbox.overState->visible = (mouseState == CHECK_OVER);
+	checkbox.upState->visible = (mouseState == CHECK_NONE);
+}
+
+int SimpleCheckbox_GetWidth(Simple_Checkbox &checkbox, int padding)
+{
+	return checkbox.checkState->width + checkbox.textState->width + padding;
+}
+
+int SimpleCheckbox_GetHeight(Simple_Checkbox &checkbox)
+{
+	if (checkbox.checkState->height > checkbox.textState->height)
+		return checkbox.checkState->height;
+	else
+		return checkbox.textState->height;
+}
+
+void SimpleCheckbox_Move(Simple_Checkbox &checkbox, int x, int y, int padding)
+{
+	checkbox.x = x;
+	checkbox.y = y;
+
+	SimpleState_Move(checkbox.checkState, x, y);
+	SimpleState_Move(checkbox.downState, x, y);
+	SimpleState_Move(checkbox.overState, x, y);
+	SimpleState_Move(checkbox.upState, x, y);
+	Simple_AlignRightOf(checkbox.textState, checkbox.checkState, padding);
 }
 
 /*
@@ -31,14 +56,14 @@ void SimpleCheckbox_SetCheckState(Simple_Checkbox &checkbox, Simple_CheckState c
 */
 void SimpleCheckbox_Layout(Simple_Checkbox &checkbox, int padding, Simple_Mouse &mouse)
 {
-	int totalWidth = checkbox.checkState->width + checkbox.textState->width + padding;
+	int totalWidth = SimpleCheckbox_GetWidth(checkbox, padding);
 	int totalHeight;
 	bool isDown = mouse.mouseDown;
 
-	if (checkbox.checkState->height > checkbox.textState->height)
-		totalHeight = checkbox.checkState->height;
-	else
-		totalHeight = checkbox.textState->height;
+	totalHeight = SimpleCheckbox_GetHeight(checkbox);
+
+	checkbox.width = totalWidth;
+	checkbox.height = totalHeight;
 
 	checkbox.checkState->visible = checkbox.checked;
 
