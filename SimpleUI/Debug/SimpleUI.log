@@ -1,0 +1,23 @@
+﻿Build started 3/30/2016 11:05:24 PM.
+     1>Project "C:\Users\Luke\Documents\Visual Studio 2013\Projects\SimpleUI\SimpleUI\SimpleUI.vcxproj" on node 2 (Rebuild target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _WINDLL /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Simple_Alignment.cpp Simple_Checkbox.cpp Simple_Mouse.cpp Simple_Point.cpp Simple_State.cpp
+         Simple_State.cpp
+         Simple_Point.cpp
+         Simple_Mouse.cpp
+         Simple_Checkbox.cpp
+     1>c:\users\luke\documents\visual studio 2013\projects\simpleui\simpleui\simple_checkbox.cpp(43): warning C4800: 'Simple_CheckState' : forcing value to bool 'true' or 'false' (performance warning)
+         Simple_Alignment.cpp
+         Generating Code...
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Luke\Documents\Visual Studio 2013\Projects\SimpleUI\Debug\SimpleUI.dll" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Luke\Documents\Visual Studio 2013\Projects\SimpleUI\Debug\SimpleUI.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Luke\Documents\Visual Studio 2013\Projects\SimpleUI\Debug\SimpleUI.lib" /MACHINE:X86 /DLL Debug\Simple_Alignment.obj
+         Debug\Simple_Checkbox.obj
+         Debug\Simple_Mouse.obj
+         Debug\Simple_Point.obj
+         Debug\Simple_State.obj
+         SimpleUI.vcxproj -> C:\Users\Luke\Documents\Visual Studio 2013\Projects\SimpleUI\Debug\SimpleUI.dll
+     1>Done Building Project "C:\Users\Luke\Documents\Visual Studio 2013\Projects\SimpleUI\SimpleUI\SimpleUI.vcxproj" (Rebuild target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.94

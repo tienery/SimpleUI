@@ -1,0 +1,22 @@
+﻿Build started 3/31/2016 2:11:26 AM.
+     1>Project "C:\Users\Luke\Documents\Visual Studio 2013\Projects\SimpleUI\SimpleUI\SimpleUI.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /sdl /O2 /Oi /Oy- /GL /D _MBCS /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Static Release\\" /Fd"Static Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Simple_Alignment.cpp Simple_Checkbox.cpp Simple_Mouse.cpp Simple_Point.cpp Simple_State.cpp
+         Simple_Alignment.cpp
+         Simple_Checkbox.cpp
+     1>Simple_Checkbox.cpp(43): warning C4800: 'Simple_CheckState' : forcing value to bool 'true' or 'false' (performance warning)
+         Simple_Mouse.cpp
+         Simple_Point.cpp
+         Simple_State.cpp
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\Lib.exe /OUT:"C:\Users\Luke\Documents\Visual Studio 2013\Projects\SimpleUI\Static Release\SimpleUI.lib" /NOLOGO /LTCG "Static Release\Simple_Alignment.obj"
+         "Static Release\Simple_Checkbox.obj"
+         "Static Release\Simple_Mouse.obj"
+         "Static Release\Simple_Point.obj"
+         "Static Release\Simple_State.obj"
+         SimpleUI.vcxproj -> C:\Users\Luke\Documents\Visual Studio 2013\Projects\SimpleUI\Static Release\SimpleUI.lib
+     1>Done Building Project "C:\Users\Luke\Documents\Visual Studio 2013\Projects\SimpleUI\SimpleUI\SimpleUI.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.47
